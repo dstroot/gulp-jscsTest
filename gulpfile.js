@@ -22,15 +22,9 @@ gulp.task('jscs', function () {
 });
 
 /**
- * Watch Files
- */
-
-gulp.task('watch', function () {
-  gulp.watch('files/*.js', ['jscs']);
-});
-
-/**
  * Default Task
  */
 
-gulp.task('default', ['jscs', 'watch']);
+gulp.task('default', ['jscs'], function () {
+  gulp.watch('files/*.js', ['jscs']);
+});

@@ -12,6 +12,6 @@
     "gulp-load-plugins": "^0.5.3",
     "gulp-util": "^2.2.19",
     "gulp-watch": "^0.6.8",
-    "terminus": "^1.0.10",
+    "terminus": "^1.0.10"
   }
 }
