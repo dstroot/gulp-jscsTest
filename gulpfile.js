@@ -2,22 +2,23 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var terminus = require("terminus");
 
 /**
  * JSCS Task
  */
 
 gulp.task('jscs', function () {
-
-  // Monkey business to handle jscs errors without stopping gulp
+  // Monkey business to handle jscs errors without
+  // stopping gulp, allowing gulp.watch to work
   var j = $.jscs();
-  j.on('error', function () {
+  j.on('error', function (e) {
+    $.util.log(e.message);
     j.end();
   });
-
   return gulp.src('files/*.js')
-    .pipe(j);
-    // .pipe($.debug());
+    .pipe(j)
+    .pipe(terminus.devnull({ objectMode: true }));
 });
 
 /**
