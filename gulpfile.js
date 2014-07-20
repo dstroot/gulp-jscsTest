@@ -11,6 +11,7 @@ var terminus = require("terminus");
 gulp.task('jscs', function () {
   // Monkey business to handle jscs errors without
   // stopping gulp, allowing gulp.watch to work
+  // and allowing it to work with > 16 files
   var j = $.jscs();
   j.on('error', function (e) {
     $.util.log(e.message);
